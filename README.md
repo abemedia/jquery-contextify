@@ -43,3 +43,8 @@ var options = {items:[
 $('.foo').contextify(options);
 ```
 This will initiate jQuery Contextify on the `.foo` elements with the default settings. Options can however be overridden on individual objects via data-attributes as outlined in the following example.
+
+
+## Copyright
+
+&copy; 2014 Adam Bouqdib - http://abemedia.co.uk
