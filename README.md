@@ -24,8 +24,8 @@ Or simply add `jquery-smoove` to your project's `bower.json`.
 
 You can also just download the latest package.
 
-- [Download latest version](https://github.com/abeMedia/jquery-smoove/archive/master.zip)
-- or `curl -O https://raw.github.com/abeMedia/jquery-smoove/master/dist/jquery.smoove.js`
+- [Download latest version](https://github.com/abeMedia/jquery-contextify/archive/master.zip)
+- or `curl -O https://raw.github.com/abeMedia/jquery-contextify/master/dist/jquery.contextify.js`
 
 
 ## Usage
