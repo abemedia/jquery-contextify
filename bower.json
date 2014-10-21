@@ -1,0 +1,23 @@
+{
+  "name": "jquery-contextify",
+  "version": "1.0.1",
+  "homepage": "http://contextify.donlabs.com",
+  "description": "A lightweight jQuery plugin for creating Bootstrap powered context menus.",
+  "main": "dist/jquery.contextify.js",
+  "keywords": [
+    "jquery",
+    "context",
+    "menu"
+  ],
+  "authors": [
+    "Adam Bouqdib (http://abemedia.co.uk)"
+  ],
+  "license": "GPL-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
