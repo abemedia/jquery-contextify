@@ -6,11 +6,10 @@ module.exports = function(grunt) {
   grunt.initConfig({
     // Metadata.
     pkg: grunt.file.readJSON('contextify.jquery.json'),
-    banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-      '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-      '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-      '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-      ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+    banner: '/*!\n' +
+        '* jQuery Smoove v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+        '* Copyright (c) <%= grunt.template.today("yyyy") %> Adam Bouqdib\n' +
+        '* Licensed under <%= pkg.licenses[0].type %> (<%= pkg.licenses[0].url %>) \n*/\n\n',
     // Task configuration.
     clean: {
       files: ['dist']

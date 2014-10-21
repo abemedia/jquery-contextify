@@ -1,6 +1,9 @@
-/*! jQuery Contextify - Lightweight Context Menu - v1.0.1 - 2014-10-21
-* http://contextify.donlabs.com
-* Copyright (c) 2014 ABE Media - Web Design Brighton; Licensed GPL-2.0 */
+/*!
+* jQuery Smoove v1.0.1 (http://contextify.donlabs.com)
+* Copyright (c) 2014 Adam Bouqdib
+* Licensed under GPL-2.0 (http://contextify.donlabs.com/blob/master/LICENSE-GPL-2.0) 
+*/
+
 ;(function ( $, window, document, undefined ) {
 
     // Create the defaults once
