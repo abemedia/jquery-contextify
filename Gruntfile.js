@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('contextify.jquery.json'),
     banner: '/*!\n' +
-        '* jQuery Smoove v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+        '* jQuery Contextify v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
         '* Copyright (c) <%= grunt.template.today("yyyy") %> Adam Bouqdib\n' +
         '* Licensed under <%= pkg.licenses[0].type %> (<%= pkg.licenses[0].url %>) \n*/\n\n',
     // Task configuration.
