@@ -8,8 +8,7 @@
             propertyName: "value"
         },
         contextifyId = 0;
-
-    // The actual plugin constructor
+        
     function Plugin( element, options ) {
         this.element = element;
         
@@ -22,7 +21,7 @@
     }
 
     Plugin.prototype.init = function () {
-        var menu = $('<ul class="contextify dropdown-menu"/>');
+        var menu = $('<ul class="contextify dropdown-menu" role="menu"/>');
         var l = this.options.items.length;
         var i;
         
@@ -76,7 +75,6 @@
         });
         
         contextifyId++;
-        //return this.element;
     };
     
     $.fn[pluginName] = function ( options ) {
