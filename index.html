@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="jQuery Contextify : A lightweight jQuery plugin for creating Bootstrap powered context menus">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>jQuery Contextify</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/abeMedia/jquery-contextify">View on GitHub</a>
+
+          <h1 id="project_title">jQuery Contextify</h1>
+          <h2 id="project_tagline">A lightweight jQuery plugin for creating Bootstrap powered context menus</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/abeMedia/jquery-contextify/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/abeMedia/jquery-contextify/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="jquery-contextify---lightweight-context-menu" class="anchor" href="#jquery-contextify---lightweight-context-menu"><span class="octicon octicon-link"></span></a>jQuery Contextify - Lightweight Context Menu</h1>
+
+<p>A lightweight jQuery plugin for creating Bootstrap powered context menus.</p>
+
+<h2>
+<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+
+<h3>
+<a name="install-with-bower" class="anchor" href="#install-with-bower"><span class="octicon octicon-link"></span></a>Install with Bower</h3>
+
+<p>Use the following command to install jQuery Contextify using <a href="https://github.com/twitter/bower">bower</a>.</p>
+
+<pre><code>$ bower install jquery-smoove
+</code></pre>
+
+<p>Or simply add <code>jquery-contextify</code> to your project's <code>bower.json</code>.</p>
+
+<div class="highlight highlight-json"><pre>  <span class="s2">"dependencies"</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">"jquery-contextify"</span><span class="p">:</span> <span class="s2">"latest"</span>
+  <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h3>
+
+<p>You can also just download the latest package.</p>
+
+<ul>
+<li><a href="https://github.com/abeMedia/jquery-contextify/archive/master.zip">Download latest version</a></li>
+<li>or <code>curl -O https://raw.github.com/abeMedia/jquery-contextify/master/dist/jquery.contextify.js</code>
+</li>
+</ul>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>jQuery Contextify needs to be activated via JavaScript.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">items</span><span class="o">:</span><span class="p">[</span>
+  <span class="p">{</span><span class="nx">header</span><span class="o">:</span> <span class="s1">'Options'</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">'First Link'</span><span class="p">,</span> <span class="nx">href</span><span class="o">:</span> <span class="s1">'#'</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">'Second Link'</span><span class="p">,</span> <span class="nx">onclick</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}},</span>
+  <span class="p">{</span><span class="nx">divider</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span>
+  <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">'Stuff'</span><span class="p">,</span> <span class="nx">href</span><span class="o">:</span> <span class="s1">'#'</span><span class="p">}</span>
+<span class="p">]}</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.foo'</span><span class="p">).</span><span class="nx">contextify</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</pre></div>
+
+<p>This will initiate jQuery Contextify on the <code>.foo</code> elements with the menu items specified in <code>options.items</code>.</p>
+
+<h2>
+<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+
+<p>© 2014 Adam Bouqdib - <a href="http://abemedia.co.uk">http://abemedia.co.uk</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">jQuery Contextify maintained by <a href="https://github.com/abeMedia">abeMedia</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-22039203-10");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
