@@ -6,17 +6,17 @@ A lightweight jQuery plugin for creating Bootstrap powered context menus.
 
 ### Install with Bower 
 
-Use the following command to install jQuery Smoove using [bower](https://github.com/twitter/bower).
+Use the following command to install jQuery Contextify using [bower](https://github.com/twitter/bower).
 
 ```
 $ bower install jquery-smoove
 ```
 
-Or simply add `jquery-smoove` to your project's `bower.json`.
+Or simply add `jquery-contextify` to your project's `bower.json`.
 
 ``` json
   "dependencies": {
-    "jquery-smoove": "latest"
+    "jquery-contextify": "latest"
   }
 ```
 
@@ -24,13 +24,13 @@ Or simply add `jquery-smoove` to your project's `bower.json`.
 
 You can also just download the latest package.
 
-- [Download latest version](https://github.com/abeMedia/jquery-smoove/archive/master.zip)
-- or `curl -O https://raw.github.com/abeMedia/jquery-smoove/master/dist/jquery.smoove.js`
+- [Download latest version](https://github.com/abeMedia/jquery-contextify/archive/master.zip)
+- or `curl -O https://raw.github.com/abeMedia/jquery-contextify/master/dist/jquery.contextify.js`
 
 
 ## Usage
 
-jQuery Smoove needs to be activated via JavaScript.
+jQuery Contextify needs to be activated via JavaScript.
 
 ```javascript
 var options = {items:[
@@ -42,4 +42,8 @@ var options = {items:[
 ]}
 $('.foo').contextify(options);
 ```
-This will initiate jQuery Contextify on the `.foo` elements with the default settings. Options can however be overridden on individual objects via data-attributes as outlined in the following example.
+This will initiate jQuery Contextify on the `.foo` elements with the menu items specified in `options.items`.
+
+## Copyright
+
+&copy; 2014 Adam Bouqdib - http://abemedia.co.uk
