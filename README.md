@@ -2,29 +2,44 @@
 
 A lightweight jQuery plugin for creating Bootstrap powered context menus.
 
-## Getting Started
-Download the [production version][min] or the [development version][max].
+## Setup
 
-[min]: https://raw.github.com/abemedia/jquery-contextify/master/dist/contextify.min.js
-[max]: https://raw.github.com/abemedia/jquery-contextify/master/dist/contextify.js
+### Install with Bower 
 
-In your web page:
+Use the following command to install jQuery Smoove using [bower](https://github.com/twitter/bower).
 
-```html
-<script src="jquery.js"></script>
-<script src="dist/contextify.min.js"></script>
-<script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
-</script>
+```
+$ bower install jquery-smoove
 ```
 
-## Documentation
-_(Coming soon)_
+Or simply add `jquery-smoove` to your project's `bower.json`.
 
-## Examples
-_(Coming soon)_
+``` json
+  "dependencies": {
+    "jquery-smoove": "latest"
+  }
+```
 
-## Release History
-_(Nothing yet)_
+### Download 
+
+You can also just download the latest package.
+
+- [Download latest version](https://github.com/abeMedia/jquery-smoove/archive/master.zip)
+- or `curl -O https://raw.github.com/abeMedia/jquery-smoove/master/dist/jquery.smoove.js`
+
+
+## Usage
+
+jQuery Smoove needs to be activated via JavaScript.
+
+```javascript
+var options = {items:[
+  {header: 'Options'},
+  {text: 'First Link', href: '#'},
+  {text: 'Second Link', onclick: function() {}},
+  {divider: true},
+  {text: 'Stuff', href: '#'}
+]}
+$('.foo').contextify(options);
+```
+This will initiate jQuery Contextify on the `.foo` elements with the default settings. Options can however be overridden on individual objects via data-attributes as outlined in the following example.
