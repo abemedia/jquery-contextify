@@ -1,0 +1,30 @@
+{
+  "name": "contextify",
+  "title": "jQuery Contextify - Lightweight Context Menu",
+  "description": "A lightweight jQuery plugin for creating Bootstrap powered context menus.",
+  "version": "1.0.1",
+  "homepage": "http://contextify.donlabs.com",
+  "author": {
+    "name": "ABE Media - Web Design Brighton",
+    "url": "http://abemedia.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abeMedia/jquery-contextify.git"
+  },
+  "bugs": "https://github.com/abeMedia/jquery-contextify/issues",
+  "licenses": [
+    {
+      "type": "GPL-2.0",
+      "url": "http://contextify.donlabs.com/blob/master/LICENSE-GPL-2.0"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7"
+  },
+  "keywords": [
+    "jquery",
+    "context",
+    "menu"
+  ]
+}
