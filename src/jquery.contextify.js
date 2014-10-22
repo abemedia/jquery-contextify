@@ -34,11 +34,11 @@
             } 
             else if (item.header) {
                 el.addClass('dropdown-header');
-                el.text(item.header);
+                el.html(item.header);
             }
             else {
                 el.append('<a/>');
-                el.find('a').text(item.text);
+                el.find('a').html(item.text);
                 
                 if (item.href) {
                     el.find('a').attr('href', item.href);
