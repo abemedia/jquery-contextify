@@ -62,7 +62,7 @@
             e.preventDefault();
             var menu = $('#'+ pluginName + '-' + $(this).attr('data-contextify-id')),
                 x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
-                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : e.clientY - menu.height();
+                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : $(window).height();
             
             menu
                 .css('top', y)
