@@ -1,5 +1,5 @@
 /*!
-* jQuery Contextify v1.0.1 (http://contextify.donlabs.com)
+* jQuery Contextify v1.0.2 (http://contextify.donlabs.com)
 * Copyright (c) 2014 Adam Bouqdib
 * Licensed under GPL-2.0 (http://abemedia.co.uk/license) 
 */
@@ -9,7 +9,7 @@
     // Create the defaults once
     var pluginName = 'contextify',
         defaults = {
-            propertyName: "value"
+            items: []
         },
         contextifyId = 0;
         
@@ -38,7 +38,7 @@
             } 
             else if (item.header) {
                 el.addClass('dropdown-header');
-                el.text(item.text);
+                el.text(item.header);
             }
             else {
                 el.append('<a/>');
@@ -66,7 +66,7 @@
             e.preventDefault();
             var menu = $('#'+ pluginName + '-' + $(this).attr('data-contextify-id')),
                 x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
-                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : e.clientY - menu.height();
+                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : $(window).height();
             
             menu
                 .css('top', y)
