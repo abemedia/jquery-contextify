@@ -5,7 +5,7 @@
     // Create the defaults once
     var pluginName = 'contextify',
         defaults = {
-            propertyName: "value"
+            items: []
         },
         contextifyId = 0;
         
@@ -34,7 +34,7 @@
             } 
             else if (item.header) {
                 el.addClass('dropdown-header');
-                el.text(item.text);
+                el.text(item.header);
             }
             else {
                 el.append('<a/>');
