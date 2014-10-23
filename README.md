@@ -1,49 +1,17 @@
-# jQuery Contextify - Lightweight Context Menu
+# Welcome to your new Koding workspace
 
-A lightweight jQuery plugin for creating Bootstrap powered context menus.
+This workspace, which lives inside the 'Workspaces' folder of your
+home directory, is the place where you can store all relevant and
+related files to this project.
 
-## Setup
+Workspaces help keep your projects organized. You can create any
+number of sub-folders within this workspace in order to further
+organize your work.
 
-### Install with Bower 
+As you move back and forth between your workspaces, Koding will try
+and remember everything about each workspace. This includes things
+like IDE settings, files open, Terminals open, etc.
 
-Use the following command to install jQuery Contextify using [bower](https://github.com/twitter/bower).
+You can create as many new workspaces as you need on your VM.
 
-```
-$ bower install jquery-smoove
-```
-
-Or simply add `jquery-contextify` to your project's `bower.json`.
-
-``` json
-  "dependencies": {
-    "jquery-contextify": "latest"
-  }
-```
-
-### Download 
-
-You can also just download the latest package.
-
-- [Download latest version](https://github.com/abeMedia/jquery-contextify/archive/master.zip)
-- or `curl -O https://raw.github.com/abeMedia/jquery-contextify/master/dist/jquery.contextify.js`
-
-
-## Usage
-
-jQuery Contextify needs to be activated via JavaScript.
-
-```javascript
-var options = {items:[
-  {header: 'Options'},
-  {text: 'First Link', href: '#'},
-  {text: 'Second Link', onclick: function() {}},
-  {divider: true},
-  {text: 'Stuff', href: '#'}
-]}
-$('.foo').contextify(options);
-```
-This will initiate jQuery Contextify on the `.foo` elements with the menu items specified in `options.items`.
-
-## Copyright
-
-&copy; 2014 Adam Bouqdib - http://abemedia.co.uk
+Enjoy and Happy Koding!

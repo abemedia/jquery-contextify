@@ -9,7 +9,8 @@
     // Create the defaults once
     var pluginName = 'contextify',
         defaults = {
-            items: []
+            items: [],
+            menuId: "contextify-menu"
         },
         contextifyId = 0;
         
@@ -25,57 +26,63 @@
     }
 
     Plugin.prototype.init = function () {
-        var menu = $('<ul class="contextify dropdown-menu" role="menu"/>');
-        var l = this.options.items.length;
-        var i;
-        
-        for (i = 0; i < l; i++) {
-            var item = this.options.items[i];
-            var el = $('<li/>');
-            
-            if (item.divider) {
-                el.addClass('divider');
-            } 
-            else if (item.header) {
-                el.addClass('dropdown-header');
-                el.html(item.header);
-            }
-            else {
-                el.append('<a/>');
-                el.find('a').html(item.text);
-                
-                if (item.href) {
-                    el.find('a').attr('href', item.href);
-                }
-                
-                if (item.onclick) {
-                    el.on('click', item.onclick);
-                }
-            }
-            
-            menu.append(el);
-        }
-        
-        menu.attr('id', pluginName + '-' + contextifyId);
-        
-        $('body').append(menu);
-        
+        var options = this.options;
         $(this.element)
         .attr('data-contextify-id', contextifyId)
         .on('contextmenu', function (e) {
             e.preventDefault();
-            var menu = $('#'+ pluginName + '-' + $(this).attr('data-contextify-id')),
-                x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
-                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : $(window).height();
+            
+            var menu = $('<ul class="dropdown-menu" role="menu" id="' + options.menuId + '"/>');
+            var l = options.items.length;
+            var i;
+            
+            for (i = 0; i < l; i++) {
+                var item = options.items[i];
+                var el = $('<li/>');
+                
+                if (item.divider) {
+                    el.addClass('divider');
+                } 
+                else if (item.header) {
+                    el.addClass('dropdown-header');
+                    el.html(item.header);
+                }
+                else {
+                    el.append('<a/>');
+                    var a = el.find('a');
+                    
+                    if (item.href) {
+                        a.attr('href', item.href);
+                    }
+                    if (item.onclick) {
+                        a.on('click', item.onclick);
+                    }
+                    if (item.data) {
+                        a.data(item.data);
+                    }
+                    a.html(item.text);
+                }
+                
+                menu.append(el);
+            }
+            
+            if ($("#" + options.menuId).length > 0) {
+                $("#" + options.menuId).replaceWith(menu);
+            } 
+            else {
+                $('body').append(menu);
+            }
+            
+            var x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
+                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : e.clientY - menu.height();
             
             menu
                 .css('top', y)
                 .css('left', x)
                 .show();
         })
-        .parents()
-        .on('mouseup', function () {
-            $('.contextify:visible').hide();
+        .parents().on('mouseup', function () {
+            $("#" + options.menuId).hide();
         });
         
         contextifyId++;
