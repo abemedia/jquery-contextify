@@ -1,10 +1,22 @@
 /*!
-* jQuery Contextify v1.0.2 (http://contextify.donlabs.com)
+* jQuery Contextify v1.0.3 (http://contextify.donlabs.com)
 * Copyright (c) 2014 Adam Bouqdib
 * Licensed under GPL-2.0 (http://abemedia.co.uk/license) 
 */
 
-;(function ( $, window, document, undefined ) {
+/*global define */
+
+;(function( factory ) {
+	if ( typeof define === "function" && define.amd ) {
+
+		// AMD. Register as an anonymous module.
+		define([ "jquery" ], factory );
+	} else {
+
+		// Browser globals
+		factory( jQuery, window );
+	}
+}(function ( $, window ) {
 
     // Create the defaults once
     var pluginName = 'contextify',
@@ -26,13 +38,15 @@
     }
 
     Plugin.prototype.init = function () {
-        var options = this.options;
+        var options = $.extend( {}, this.options, $(this.element).data());
+        options.id = contextifyId;
         $(this.element)
-        .attr('data-contextify-id', contextifyId)
+        .attr('data-contextify-id', options.id)
         .on('contextmenu', function (e) {
             e.preventDefault();
+            var menu = $('<ul class="dropdown-menu" role="menu" id="' + options.menuId + '" data-contextify-id="' + options.id + '"/>');
+            menu.data(options);
             
-            var menu = $('<ul class="dropdown-menu" role="menu" id="' + options.menuId + '"/>');
             var l = options.items.length;
             var i;
             
@@ -51,13 +65,15 @@
                     el.append('<a/>');
                     var a = el.find('a');
                     
-                    if (item.href) {
-                        a.attr('href', item.href);
-                    }
+                    a.attr('href', (item.href) ? item.href : '#');
+                    
                     if (item.onclick) {
                         a.on('click', item.onclick);
                     }
                     if (item.data) {
+                    for (var data in item.data) {
+                        menu.attr('data-' + data, item.data[data]);
+                    }
                         a.data(item.data);
                     }
                     a.html(item.text);
@@ -97,4 +113,4 @@
         });
     };
 
-})( jQuery, window, document );
+}));
