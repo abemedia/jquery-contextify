@@ -9,7 +9,7 @@ A lightweight jQuery plugin for creating Bootstrap powered context menus.
 Use the following command to install jQuery Contextify using [bower](https://github.com/twitter/bower).
 
 ```
-$ bower install jquery-smoove
+$ bower install jquery-contextify
 ```
 
 Or simply add `jquery-contextify` to your project's `bower.json`.
