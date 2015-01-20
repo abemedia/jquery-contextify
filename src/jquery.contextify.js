@@ -88,8 +88,9 @@
             $('body').append(menu);
         }
         
-        var x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
-            y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : $(window).height() - menu.height() - 15;
+        var clientTop = $(window).scrollTop() + e.clientY,
+            x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
+            y = (menu.height() + e.clientY < $(window).height()) ? clientTop : clientTop - menu.height();
         
         menu
             .css('top', y)
