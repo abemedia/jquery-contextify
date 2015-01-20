@@ -81,20 +81,20 @@
             menu.append(el);
         }
             
-            if ($("#" + options.menuId).length > 0) {
-                $("#" + options.menuId).replaceWith(menu);
-            } 
-            else {
-                $('body').append(menu);
-            }
-            
-            var x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
-                y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : $(window).height() - menu.height() - 15;
-            
-            menu
-                .css('top', y)
-                .css('left', x)
-                .show();
+        if ($("#" + options.menuId).length > 0) {
+            $("#" + options.menuId).replaceWith(menu);
+        } 
+        else {
+            $('body').append(menu);
+        }
+        
+        var x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
+            y = (menu.height() + e.clientY < $(window).height()) ? e.clientY : $(window).height() - menu.height() - 15;
+        
+        menu
+            .css('top', y)
+            .css('left', x)
+            .show();
         })
         .parents().on('mouseup', function () {
             $("#" + options.menuId).hide();
@@ -103,11 +103,25 @@
         contextifyId++;
     };
     
+    Plugin.prototype.destroy = function () {
+        var el = $(this.element),
+            options = $.extend({}, this.options, el.data()), 
+            menu = $("#" + options.menuId);
+            
+        el
+            .removeAttr('data-contextify-id')
+            .off('contextmenu')
+            .parents().off('mouseup', function () {
+                menu.hide();
+            });
+            
+        menu.remove();
+    };
+    
     $.fn[pluginName] = function ( options ) {
         return this.each(function () {
             if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, 
-                new Plugin( this, options ));
+                $.data(this, 'plugin_' + pluginName, new Plugin( this, options ));
             }
         });
     };
