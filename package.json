@@ -1,6 +1,6 @@
 {
   "name": "jquery-contextify",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "A lightweight jQuery plugin for creating Bootstrap powered context menus.",
   "main": "dist/jquery.contextify.js",
   "repository": {
@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/abeMedia/jquery-contextify/issues"
   },
-  "homepage": "http://contextify.donlabs.com",
+  "homepage": "http://contextify.js.org",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -31,7 +31,9 @@
     "grunt-contrib-uglify": "~0.3.0",
     "grunt-contrib-watch": "~0.4.0",
     "grunt-contrib-clean": "~0.4.0",
-    "grunt": "~0.4.5"
+    "grunt": "~0.4.5",
+    "qunitjs": "~1.11",
+    "jquery": ">=1.7"
   },
   "directories": {
     "test": "test"

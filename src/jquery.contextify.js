@@ -1,4 +1,4 @@
-/* jQuery Contextify | (c) 2014 Adam Bouqdib | abemedia.co.uk/license */
+/* jQuery Contextify | (c) 2014-2016 Adam Bouqdib | abemedia.co.uk/license */
 
 /*global define */
 
@@ -13,62 +13,66 @@
 		factory( jQuery, window );
 	}
 }(function ( $, window ) {
-    
+
     var pluginName = 'contextify',
         defaults = {
             items: [],
+            action: "contextmenu",
             menuId: "contextify-menu",
+            menuClass: "dropdown-menu",
+            headerClass: "dropdown-header",
+            dividerClass: "divider",
             before: false
         },
         contextifyId = 0;
-        
+
     function Plugin( element, options ) {
         this.element = element;
-        
+
         this.options = $.extend( {}, defaults, options) ;
-        
+
         this._defaults = defaults;
         this._name = pluginName;
-        
+
         this.init();
     }
 
     Plugin.prototype.init = function () {
         var options = $.extend( {}, this.options, $(this.element).data());
         options.id = contextifyId;
-        
+
         $(this.element)
             .attr('data-contextify-id', options.id)
             .on('contextmenu', function (e) {
                 e.preventDefault();
-                
+
                 // run before
                 if(typeof(options.before) === 'function') {
                     options.before(this, options);
                 }
-                
-                var menu = $('<ul class="dropdown-menu" role="menu" id="' + options.menuId + '" data-contextify-id="' + options.id + '"/>');
-                
+
+                var menu = $('<ul class="' + options.menuClass + '" role="menu" id="' + options.menuId + '" data-contextify-id="' + options.id + '"/>');
+
                 menu.data(options);
-                
+
                 var l = options.items.length;
                 var i;
-                
+
                 for (i = 0; i < l; i++) {
                     var item = options.items[i];
                     var el = $('<li/>');
-                    
+
                     if (item.divider) {
-                        el.addClass('divider');
-                    } 
+                        el.addClass(options.dividerClass);
+                    }
                     else if (item.header) {
-                        el.addClass('dropdown-header');
+                        el.addClass(options.headerClass);
                         el.html(item.header);
                     }
                     else {
                         el.append('<a/>');
                         var a = el.find('a');
-                        
+
                         if (item.href) {
                             a.attr('href', item.href);
                         }
@@ -84,25 +88,25 @@
                         }
                         a.html(item.text);
                     }
-                    
+
                     menu.append(el);
                 }
-                
+
                 var currentMenu = $("#" + options.menuId);
-                    
+
                 if (currentMenu.length > 0) {
                     if(currentMenu !== menu) {
                         currentMenu.replaceWith(menu);
                     }
-                } 
+                }
                 else {
                     $('body').append(menu);
                 }
-                
+
                 var clientTop = $(window).scrollTop() + e.clientY,
                     x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
                     y = (menu.height() + e.clientY < $(window).height()) ? clientTop : clientTop - menu.height();
-                
+
                 menu
                     .css('top', y)
                     .css('left', x)
@@ -111,25 +115,25 @@
         .parents().on('mouseup', function () {
             $("#" + options.menuId).hide();
         });
-        
+
         contextifyId++;
     };
-    
+
     Plugin.prototype.destroy = function () {
         var el = $(this.element),
-            options = $.extend({}, this.options, el.data()), 
+            options = $.extend({}, this.options, el.data()),
             menu = $("#" + options.menuId);
-            
+
         el
             .removeAttr('data-contextify-id')
             .off('contextmenu')
             .parents().off('mouseup', function () {
                 menu.hide();
             });
-            
+
         menu.remove();
     };
-    
+
     $.fn[pluginName] = function ( options ) {
         return this.each(function () {
             if( $.data(this, 'plugin_' + pluginName) && Object.prototype.toString.call(options) === '[object String]' ) {
