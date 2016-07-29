@@ -110,6 +110,7 @@
                 menu
                     .css('top', y)
                     .css('left', x)
+                    .css('position', 'fixed')
                     .show();
             })
         .parents().on('mouseup', function () {
