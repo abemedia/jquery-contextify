@@ -1,5 +1,5 @@
 /*!
-* jQuery Contextify v1.0.6 (http://contextify.js.org)
+* jQuery Contextify v1.0.7 (http://contextify.js.org)
 * Copyright (c) 2016 Adam Bouqdib
 * Licensed under GPL-2.0 (http://abemedia.co.uk/license) 
 */

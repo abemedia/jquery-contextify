@@ -9,11 +9,11 @@ A lightweight jQuery plugin for creating Bootstrap powered context menus.
 The easiest way to get up and running is to load jQuery Contextify using a CDN. Make sure jQuery is loaded first though.
 
 ```html
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextify/1.0.6/jquery.contextify.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextify/1.0.7/jquery.contextify.min.js"></script>
 ```
 or
 ```html
-<script src="//cdn.jsdelivr.net/jquery.contextify/1.0.6/jquery.contextify.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.contextify/1.0.7/jquery.contextify.min.js"></script>
 ```
 
 ### Install with Bower
@@ -53,7 +53,7 @@ The menu items are passed as an array in `options.items`. See the following exam
 <a class="foo" href="#" data-name="John">Click me</a>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextify/1.0.6/jquery.contextify.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-contextify/1.0.7/jquery.contextify.min.js"></script>
 <script>
 var options = {items:[
   {header: 'Options'},
