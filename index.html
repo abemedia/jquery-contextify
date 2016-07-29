@@ -1,61 +1,48 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="jQuery Contextify : A lightweight jQuery plugin for creating Bootstrap powered context menus">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>jQuery Contextify - Lightweight Context Menus</title>
+    <meta charset="UTF-8">
+    <title>jQuery Contextify by abeMedia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">jQuery Contextify</h1>
+      <h2 class="project-tagline">A lightweight jQuery plugin for creating Bootstrap powered context menus</h2>
+      <a href="https://github.com/abeMedia/jquery-contextify" class="btn">View on GitHub</a>
+      <a href="https://github.com/abeMedia/jquery-contextify/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/abeMedia/jquery-contextify/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/abeMedia/jquery-contextify">View on GitHub</a>
-
-          <h1 id="project_title">jQuery Contextify</h1>
-          <h2 id="project_tagline">A lightweight jQuery plugin for creating Bootstrap powered context menus</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/abeMedia/jquery-contextify/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/abeMedia/jquery-contextify/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
-<a name="jquery-contextify---lightweight-context-menu" class="anchor" href="#jquery-contextify---lightweight-context-menu"><span class="octicon octicon-link"></span></a>jQuery Contextify - Lightweight Context Menu</h1>
+    <section class="main-content">
+      <h1>
+<a id="jquery-contextify---lightweight-context-menu" class="anchor" href="#jquery-contextify---lightweight-context-menu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>jQuery Contextify - Lightweight Context Menu</h1>
 
 <p>A lightweight jQuery plugin for creating Bootstrap powered context menus.</p>
 
 <h2>
-<a name="setup" class="anchor" href="#setup"><span class="octicon octicon-link"></span></a>Setup</h2>
+<a id="setup" class="anchor" href="#setup" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setup</h2>
 
 <h3>
-<a name="install-with-bower" class="anchor" href="#install-with-bower"><span class="octicon octicon-link"></span></a>Install with Bower</h3>
+<a id="install-with-bower" class="anchor" href="#install-with-bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install with Bower</h3>
 
 <p>Use the following command to install jQuery Contextify using <a href="https://github.com/twitter/bower">bower</a>.</p>
 
-<pre><code>$ bower install jquery-smoove
+<pre><code>$ bower install jquery-contextify
 </code></pre>
 
 <p>Or simply add <code>jquery-contextify</code> to your project's <code>bower.json</code>.</p>
 
-<div class="highlight highlight-json"><pre>  <span class="s2">"dependencies"</span><span class="err">:</span> <span class="p">{</span>
-    <span class="nt">"jquery-contextify"</span><span class="p">:</span> <span class="s2">"latest"</span>
-  <span class="p">}</span>
-</pre></div>
+<div class="highlight highlight-source-json"><pre>  <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span>: {
+    <span class="pl-s"><span class="pl-pds">"</span>jquery-contextify<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>latest<span class="pl-pds">"</span></span>
+  }</pre></div>
 
 <h3>
-<a name="download" class="anchor" href="#download"><span class="octicon octicon-link"></span></a>Download</h3>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h3>
 
 <p>You can also just download the latest package.</p>
 
@@ -66,38 +53,99 @@
 </ul>
 
 <h2>
-<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
 <p>jQuery Contextify needs to be activated via JavaScript.</p>
 
-<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span><span class="nx">items</span><span class="o">:</span><span class="p">[</span>
-  <span class="p">{</span><span class="nx">header</span><span class="o">:</span> <span class="s1">'Options'</span><span class="p">},</span>
-  <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">'First Link'</span><span class="p">,</span> <span class="nx">href</span><span class="o">:</span> <span class="s1">'#'</span><span class="p">},</span>
-  <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">'Second Link'</span><span class="p">,</span> <span class="nx">onclick</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{}},</span>
-  <span class="p">{</span><span class="nx">divider</span><span class="o">:</span> <span class="kc">true</span><span class="p">},</span>
-  <span class="p">{</span><span class="nx">text</span><span class="o">:</span> <span class="s1">'Stuff'</span><span class="p">,</span> <span class="nx">href</span><span class="o">:</span> <span class="s1">'#'</span><span class="p">}</span>
-<span class="p">]}</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'.foo'</span><span class="p">).</span><span class="nx">contextify</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
-</pre></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.foo<span class="pl-pds">'</span></span>).<span class="pl-en">contextify</span>(options);</pre></div>
+
+<p>The menu items are passed as an array in <code>options.items</code>. See the following example for creating a basic context menu.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">a</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>#<span class="pl-pds">"</span></span> <span class="pl-e">data-name</span>=<span class="pl-s"><span class="pl-pds">"</span>John<span class="pl-pds">"</span></span>&gt;Click me&lt;/<span class="pl-ent">a</span>&gt;
+
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>//cdnjs.cloudflare.com/ajax/libs/jquery-contextify/1.0.6/jquery.contextify.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+<span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1"><span class="pl-k">var</span> options <span class="pl-k">=</span> {items<span class="pl-k">:</span>[</span>
+<span class="pl-s1">  {header<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Options<span class="pl-pds">'</span></span>},</span>
+<span class="pl-s1">  {text<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>First Link<span class="pl-pds">'</span></span>, href<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#<span class="pl-pds">'</span></span>},</span>
+<span class="pl-s1">  {text<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Second Link<span class="pl-pds">'</span></span>, <span class="pl-en">onclick</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">e</span>) {</span>
+<span class="pl-s1">    <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>Hello <span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-smi">e</span>.<span class="pl-c1">data</span>.<span class="pl-c1">name</span>);</span>
+<span class="pl-s1">  }},</span>
+<span class="pl-s1">  {divider<span class="pl-k">:</span> <span class="pl-c1">true</span>},</span>
+<span class="pl-s1">  {text<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Stuff<span class="pl-pds">'</span></span>, href<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>#<span class="pl-pds">'</span></span>}</span>
+<span class="pl-s1">]}</span>
+<span class="pl-s1"><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">'</span>.foo<span class="pl-pds">'</span></span>).<span class="pl-en">contextify</span>(options);</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
 
 <p>This will initiate jQuery Contextify on the <code>.foo</code> elements with the menu items specified in <code>options.items</code>.</p>
 
+<h3>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Options</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>items</code></td>
+<td>array</td>
+<td>[]</td>
+<td>An array of menu item objects.</td>
+</tr>
+<tr>
+<td><code>action</code></td>
+<td>string</td>
+<td><code>contextmenu</code></td>
+<td>The action on which to display the context menu (can be <code>contextmenu</code>, <code>click</code> or <code>mouseover</code>).</td>
+</tr>
+<tr>
+<td><code>menuId</code></td>
+<td>string</td>
+<td><code>contextify-menu</code></td>
+<td>The <code>id</code> attribute of the context menu.</td>
+</tr>
+<tr>
+<td><code>menuClass</code></td>
+<td>string</td>
+<td><code>dropdown-menu</code></td>
+<td>The <code>class</code> attribute of the context menu.</td>
+</tr>
+<tr>
+<td><code>headerClass</code></td>
+<td>string</td>
+<td><code>dropdown-header</code></td>
+<td>The <code>class</code> attribute of menu headers.</td>
+</tr>
+<tr>
+<td><code>dividerClass</code></td>
+<td>string</td>
+<td><code>divider</code></td>
+<td>The <code>class</code> attribute of menu dividers.</td>
+</tr>
+</tbody>
+</table>
+
 <h2>
-<a name="copyright" class="anchor" href="#copyright"><span class="octicon octicon-link"></span></a>Copyright</h2>
+<a id="copyright" class="anchor" href="#copyright" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright</h2>
 
-<p>© 2014 Adam Bouqdib - <a href="http://abemedia.co.uk">http://abemedia.co.uk</a></p>
-      </section>
-    </div>
+<p>© 2014-2016 Adam Bouqdib - <a href="http://abemedia.co.uk">http://abemedia.co.uk</a></p>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">jQuery Contextify maintained by <a href="https://github.com/abeMedia">abeMedia</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/abeMedia/jquery-contextify">jQuery Contextify</a> is maintained by <a href="https://github.com/abeMedia">abeMedia</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-              <script type="text/javascript">
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -107,7 +155,6 @@
             pageTracker._trackPageview();
             } catch(err) {}
           </script>
-
 
   </body>
 </html>
