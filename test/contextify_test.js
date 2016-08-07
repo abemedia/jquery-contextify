@@ -20,17 +20,17 @@
       throws(block, [expected], [message])
   */
 
-  module('jQuery#contextify', {
+  QUnit.module('jQuery#contextify', {
     // This will run before each test in this module.
-    setup: function() {
+    beforeEach: function() {
       this.elems = $('#qunit-fixture').children();
     }
   });
 
-  test('is chainable', function() {
-    expect(1);
+  QUnit.test('is chainable', function(assert) {
+    assert.expect(1);
     // Not a bad test to run on collection methods.
-    strictEqual(this.elems.contextify({items:[{divider:true}]}), this.elems, 'should be chainable');
+    assert.strictEqual(this.elems.contextify({items:[{divider:true}]}), this.elems, 'should be chainable');
   });
 
 }(jQuery));

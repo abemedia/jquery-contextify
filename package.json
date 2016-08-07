@@ -1,44 +1,44 @@
 {
   "name": "jquery-contextify",
+  "title": "jQuery Contextify - Lightweight Context Menu",
   "version": "1.0.7",
   "description": "A lightweight jQuery plugin for creating Bootstrap powered context menus.",
-  "main": "dist/jquery.contextify.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/abeMedia/jquery-contextify.git"
-  },
+  "homepage": "http://contextify.js.org",
+  "author": "Adam Bouqdib (http://abemedia.co.uk)",
   "keywords": [
     "jquery",
     "context",
     "menu"
   ],
-  "author": "Adam Bouqdib (http://abemedia.co.uk)",
-  "license": "GPL-2.0",
+  "maintainers": [
+    "Adam Bouqdib (http://abemedia.co.uk)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abeMedia/jquery-contextify.git"
+  },
   "bugs": {
     "url": "https://github.com/abeMedia/jquery-contextify/issues"
   },
-  "homepage": "http://contextify.js.org",
+  "main": "dist/jquery.contextify.js",
+  "license": "GPL-2.0",
   "engines": {
     "node": ">= 0.8.0"
   },
   "scripts": {
-    "test": "grunt qunit"
-  },
-  "devDependencies": {
-    "grunt-contrib-jshint": "~0.10.0",
-    "grunt-contrib-qunit": "~0.2.0",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.3.0",
-    "grunt-contrib-watch": "~0.4.0",
-    "grunt-contrib-clean": "~0.4.0",
-    "grunt": "~0.4.5",
-    "qunitjs": "~1.11",
-    "jquery": ">=1.7"
-  },
-  "directories": {
-    "test": "test"
+    "test": "grunt test"
   },
   "dependencies": {
     "jquery": ">=1.7"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "qunitjs": "^2.0.1"
   }
 }

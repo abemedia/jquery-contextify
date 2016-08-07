@@ -65,9 +65,51 @@ module.exports = function(grunt) {
         tasks: ['jshint:test', 'qunit']
       },
     },
+    updatejson: {
+      options: {
+        src: 'contextify.jquery.json',
+        dest: ['bower.json', 'package.json'],
+        indent: '    ',
+        fields: ['title', 'description', 'version', 'homepage', 'keywords', 'dependencies']
+      }
+    }
+  });
+  
+  grunt.registerTask('updatejson', function () {
+    // set config vars
+    var options = this.options();
+    if(typeof(options.dest) === 'string') {
+      options.dest = [options.dest];
+    }
+    
+    // check that all files exist
+    var files = (JSON.parse(JSON.stringify(options.dest)));
+    files.push(options.src);
+    for (var d = 0; d < files.length; d++) {
+      if (!grunt.file.exists(files[d])) {
+        grunt.log.error("file " + files[d] + " not found");
+        return false;
+      }
+    }
+    
+    // read source data
+    grunt.log.writeln("Reading from " + options.src);
+    var src = grunt.file.readJSON(options.src);
+    
+    // update destination files
+    for (d = 0; d < options.dest.length; d++) {
+      var data = grunt.file.readJSON(options.dest[d]);
+      for (var f = 0; f < options.fields.length; f++) {
+        var field = options.fields[f];
+        if(typeof(data[field]) !== 'undefined') {
+            data[field] = src[field];
+        }
+      }
+      grunt.file.write(options.dest[d], JSON.stringify(data, options.indent, 2));
+      grunt.log.writeln("Updated " + options.dest[d]);
+    }
   });
 
-  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -75,7 +117,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'clean', 'concat', 'uglify']);
-
+  grunt.registerTask('test', ['jshint', 'qunit']);
+  grunt.registerTask('build', ['clean', 'concat', 'uglify', 'updatejson']);
+  grunt.registerTask('default', ['test', 'build']);
 };

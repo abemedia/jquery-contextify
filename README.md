@@ -2,6 +2,9 @@
 
 A lightweight jQuery plugin for creating Bootstrap powered context menus.
 
+[![Build Status](https://travis-ci.org/abeMedia/jquery-contextify.svg?branch=master)](https://travis-ci.org/abeMedia/jquery-contextify)
+[![Dependency Status](https://dependencyci.com/github/abeMedia/jquery-contextify/badge)](https://dependencyci.com/github/abeMedia/jquery-contextify)
+
 ## Setup
 
 ### Load from CDN

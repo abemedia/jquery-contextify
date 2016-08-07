@@ -12,14 +12,17 @@
     "Adam Bouqdib (http://abemedia.co.uk)"
   ],
   "dependencies": {
-    "jQuery": ">=1.7"
+    "jquery": ">=1.7"
   },
   "license": "GPL-2.0",
   "ignore": [
     "**/.*",
-    "node_modules",
     "bower_components",
+    "libs",
+    "node_modules",
+    "src",
     "test",
-    "tests"
+    "Gruntfile.js",
+    "contextify.jquery.json"
   ]
 }

@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '4.4'
+
+cache:
+  directories:
+  - node_modules
+
+before_install:
+- npm install -g grunt-cli
+
+deploy:
+  provider: npm
+  email: adam@abemedia.co.uk
+  api_key: $NPM_TOKEN
