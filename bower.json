@@ -11,6 +11,9 @@
   "authors": [
     "Adam Bouqdib (http://abemedia.co.uk)"
   ],
+  "dependencies": {
+    "jQuery": ">=1.7"
+  },
   "license": "GPL-2.0",
   "ignore": [
     "**/.*",
