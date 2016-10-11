@@ -74,14 +74,14 @@ module.exports = function(grunt) {
       }
     }
   });
-  
+
   grunt.registerTask('updatejson', function () {
     // set config vars
     var options = this.options();
     if(typeof(options.dest) === 'string') {
       options.dest = [options.dest];
     }
-    
+
     // check that all files exist
     var files = (JSON.parse(JSON.stringify(options.dest)));
     files.push(options.src);
@@ -91,11 +91,11 @@ module.exports = function(grunt) {
         return false;
       }
     }
-    
+
     // read source data
     grunt.log.writeln("Reading from " + options.src);
     var src = grunt.file.readJSON(options.src);
-    
+
     // update destination files
     for (d = 0; d < options.dest.length; d++) {
       var data = grunt.file.readJSON(options.dest[d]);

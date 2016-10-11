@@ -24,7 +24,8 @@
             dividerClass: "divider",
             before: false
         },
-        contextifyId = 0;
+        contextifyId = 0,
+        $window = $(window);
 
     function Plugin( element, options ) {
         this.element = element;
@@ -103,9 +104,12 @@
                     $('body').append(menu);
                 }
 
-                var clientTop = $(window).scrollTop() + e.clientY,
-                    x = (menu.width() + e.clientX < $(window).width()) ? e.clientX : e.clientX - menu.width(),
-                    y = (menu.height() + e.clientY < $(window).height()) ? clientTop : clientTop - menu.height();
+                var windowWidth = $window.width(),
+                    windowHeight = $window.height(),
+                    menuWidth = menu.outerWidth(),
+                    menuHeight = menu.outerHeight(),
+                    x = (menuWidth + e.clientX < windowWidth) ? e.clientX : windowWidth - menuWidth,
+                    y = (menuHeight + e.clientY < windowHeight) ? e.clientY : windowHeight - menuHeight;
 
                 menu
                     .css('top', y)
@@ -117,22 +121,29 @@
             $("#" + options.menuId).hide();
         });
 
+        $window.on('scroll', function () {
+            $("#" + options.menuId).hide();
+        });
+
         contextifyId++;
     };
 
     Plugin.prototype.destroy = function () {
         var el = $(this.element),
-            options = $.extend({}, this.options, el.data()),
-            menu = $("#" + options.menuId);
+            options = $.extend({}, this.options, el.data());
 
         el
             .removeAttr('data-contextify-id')
             .off('contextmenu')
             .parents().off('mouseup', function () {
-                menu.hide();
+                $("#" + options.menuId).hide();
             });
 
-        menu.remove();
+        $window.off('scroll', function () {
+            $("#" + options.menuId).hide();
+        });
+
+        $("#" + options.menuId).remove();
     };
 
     $.fn[pluginName] = function ( options ) {
