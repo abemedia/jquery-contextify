@@ -1,5 +1,5 @@
 /*!
-* jQuery Contextify v1.0.8 (http://contextify.js.org)
+* jQuery Contextify v1.1.1 (http://contextify.js.org)
 * Copyright (c) 2016 Adam Bouqdib
 * Licensed under GPL-2.0 (http://abemedia.co.uk/license) 
 */
@@ -7,15 +7,15 @@
 /*global define */
 
 ;(function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+    if ( typeof define === "function" && define.amd ) {
 
-		// AMD. Register as an anonymous module.
-		define([ "jquery" ], factory );
-	} else {
+        // AMD. Register as an anonymous module.
+        define([ "jquery" ], factory );
+    } else {
 
-		// Browser globals
-		factory( jQuery, window );
-	}
+        // Browser globals
+        factory( jQuery, window );
+    }
 }(function ( $, window ) {
 
     var pluginName = 'contextify',
@@ -26,7 +26,9 @@
             menuClass: "dropdown-menu",
             headerClass: "dropdown-header",
             dividerClass: "divider",
-            before: false
+            before: false,
+            hideOnMouseUp: true,
+            hideOnScroll: true
         },
         contextifyId = 0,
         $window = $(window);
@@ -35,9 +37,6 @@
         this.element = element;
 
         this.options = $.extend( {}, defaults, options) ;
-
-        this._defaults = defaults;
-        this._name = pluginName;
 
         this.init();
     }
@@ -50,6 +49,9 @@
             .attr('data-contextify-id', options.id)
             .on('contextmenu', function (e) {
                 e.preventDefault();
+                e.stopPropagation();
+
+                $('ul[data-contextify-id][role=menu]').hide();
 
                 // run before
                 if(typeof(options.before) === 'function') {
@@ -86,9 +88,9 @@
                             a.css('cursor', 'pointer');
                         }
                         if (item.data) {
-                        for (var data in item.data) {
-                            menu.attr('data-' + data, item.data[data]);
-                        }
+                            for (var data in item.data) {
+                                menu.attr('data-' + data, item.data[data]);
+                            }
                             a.data(item.data);
                         }
                         a.html(item.text);
@@ -121,13 +123,26 @@
                     .css('position', 'fixed')
                     .show();
             })
-        .parents().on('mouseup', function () {
-            $("#" + options.menuId).hide();
-        });
+        ;
 
-        $window.on('scroll', function () {
-            $("#" + options.menuId).hide();
-        });
+        if( true === options.hideOnMouseUp ){
+            $(this.element)
+                .parents().on('mouseup', function () {
+                $("#" + options.menuId).hide();
+            });
+        }
+        else{
+            $(this.element)
+                .parents().on('contextmenu click', function () {
+                $("#" + options.menuId).hide();
+            });
+        }
+
+        if(true === options.hideOnScroll) {
+            $window.on('scroll', function () {
+                $("#" + options.menuId).hide();
+            });
+        }
 
         contextifyId++;
     };
