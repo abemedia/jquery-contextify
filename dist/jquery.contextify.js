@@ -1,5 +1,5 @@
 /*!
-* jQuery Contextify v1.1.0 (http://contextify.js.org)
+* jQuery Contextify v1.1.1 (http://contextify.js.org)
 * Copyright (c) 2016 Adam Bouqdib
 * Licensed under GPL-2.0 (http://abemedia.co.uk/license) 
 */
@@ -50,6 +50,8 @@
             .on('contextmenu', function (e) {
                 e.preventDefault();
                 e.stopPropagation();
+
+                $('ul[data-contextify-id][role=menu]').hide();
 
                 // run before
                 if(typeof(options.before) === 'function') {

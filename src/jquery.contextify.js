@@ -47,6 +47,8 @@
                 e.preventDefault();
                 e.stopPropagation();
 
+                $('ul[data-contextify-id][role=menu]').hide();
+
                 // run before
                 if(typeof(options.before) === 'function') {
                     options.before(this, options);
