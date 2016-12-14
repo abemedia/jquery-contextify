@@ -16,10 +16,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/abeMedia/jquery-contextify.git"
+    "url": "https://github.com/JPInfinity/jquery-contextify.git"
   },
   "bugs": {
-    "url": "https://github.com/abeMedia/jquery-contextify/issues"
+    "url": "https://github.com/JPInfinity/jquery-contextify/issues"
   },
   "main": "dist/jquery.contextify.js",
   "license": "GPL-2.0",
