@@ -118,12 +118,6 @@
                     .css('left', x)
                     .css('position', 'fixed')
                     .show();
-
-                if( false === options.hideOnMouseUp ) {
-                    menu.on('click', function (e) {
-                        e.stopPropagation();
-                    });
-                }
             })
         ;
 
