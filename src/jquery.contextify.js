@@ -21,6 +21,7 @@
             menuId: "contextify-menu",
             menuClass: "dropdown-menu",
             headerClass: "dropdown-header",
+            disabledClass: "disabled",
             dividerClass: "divider",
             before: false,
             hideOnMouseUp: true,
@@ -67,6 +68,7 @@
 
                     if (item.divider) {
                         el.addClass(options.dividerClass);
+                        el.attr('role', 'separator');
                     }
                     else if (item.header) {
                         el.addClass(options.headerClass);
@@ -76,18 +78,23 @@
                         el.append('<a/>');
                         var a = el.find('a');
 
-                        if (item.href) {
-                            a.attr('href', item.href);
+                        if (item.disabled) {
+                            el.addClass(options.disabledClass);
                         }
-                        if (item.onclick) {
-                            a.on('click', options, item.onclick);
-                            a.css('cursor', 'pointer');
-                        }
-                        if (item.data) {
-                            for (var data in item.data) {
-                                menu.attr('data-' + data, item.data[data]);
+                        else{
+                            if (item.href) {
+                                a.attr('href', item.href);
                             }
-                            a.data(item.data);
+                            if (item.onclick) {
+                                a.on('click', options, item.onclick);
+                                a.css('cursor', 'pointer');
+                            }
+                            if (item.data) {
+                                for (var data in item.data) {
+                                    menu.attr('data-' + data, item.data[data]);
+                                }
+                                a.data(item.data);
+                            }
                         }
                         a.html(item.text);
                     }
@@ -151,8 +158,8 @@
             .removeAttr('data-contextify-id')
             .off('contextmenu')
             .parents().off('mouseup', function () {
-                $("#" + options.menuId).hide();
-            });
+            $("#" + options.menuId).hide();
+        });
 
         $window.off('scroll', function () {
             $("#" + options.menuId).hide();
