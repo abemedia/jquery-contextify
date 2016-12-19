@@ -1,4 +1,8 @@
-/* jQuery Contextify | (c) 2014-2016 Adam Bouqdib | abemedia.co.uk/license */
+/*!
+ * jQuery Contextify v1.1.1 (http://contextify.js.org)
+ * Copyright (c) 2016 Adam Bouqdib
+ * Licensed under GPL-2.0 (http://abemedia.co.uk/license)
+ */
 
 /*global define */
 
@@ -57,7 +61,7 @@
 
                 var menu = $('<ul class="' + options.menuClass + '" role="menu" id="' + options.menuId + '" data-contextify-id="' + options.id + '"/>');
 
-                menu.data(options);
+                menu.data($.merge(options, $(e.currentTarget).data()));
 
                 var l = options.items.length;
                 var i;
@@ -178,5 +182,4 @@
             }
         });
     };
-
 }));
