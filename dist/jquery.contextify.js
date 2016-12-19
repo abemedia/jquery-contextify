@@ -1,21 +1,27 @@
 /*!
-* jQuery Contextify v1.0.8 (http://contextify.js.org)
+* jQuery Contextify v1.1.1 (http://contextify.js.org)
 * Copyright (c) 2016 Adam Bouqdib
 * Licensed under GPL-2.0 (http://abemedia.co.uk/license) 
 */
 
+/*!
+ * jQuery Contextify v1.1.1 (http://contextify.js.org)
+ * Copyright (c) 2016 Adam Bouqdib
+ * Licensed under GPL-2.0 (http://abemedia.co.uk/license)
+ */
+
 /*global define */
 
 ;(function( factory ) {
-	if ( typeof define === "function" && define.amd ) {
+    if ( typeof define === "function" && define.amd ) {
 
-		// AMD. Register as an anonymous module.
-		define([ "jquery" ], factory );
-	} else {
+        // AMD. Register as an anonymous module.
+        define([ "jquery" ], factory );
+    } else {
 
-		// Browser globals
-		factory( jQuery, window );
-	}
+        // Browser globals
+        factory( jQuery, window );
+    }
 }(function ( $, window ) {
 
     var pluginName = 'contextify',
@@ -25,8 +31,11 @@
             menuId: "contextify-menu",
             menuClass: "dropdown-menu",
             headerClass: "dropdown-header",
+            disabledClass: "disabled",
             dividerClass: "divider",
-            before: false
+            before: false,
+            hideOnMouseUp: true,
+            hideOnScroll: true
         },
         contextifyId = 0,
         $window = $(window);
@@ -35,9 +44,6 @@
         this.element = element;
 
         this.options = $.extend( {}, defaults, options) ;
-
-        this._defaults = defaults;
-        this._name = pluginName;
 
         this.init();
     }
@@ -50,6 +56,9 @@
             .attr('data-contextify-id', options.id)
             .on('contextmenu', function (e) {
                 e.preventDefault();
+                e.stopPropagation();
+
+                $('ul[data-contextify-id][role=menu]').hide();
 
                 // run before
                 if(typeof(options.before) === 'function') {
@@ -58,7 +67,7 @@
 
                 var menu = $('<ul class="' + options.menuClass + '" role="menu" id="' + options.menuId + '" data-contextify-id="' + options.id + '"/>');
 
-                menu.data(options);
+                menu.data($.merge(options, $(e.currentTarget).data()));
 
                 var l = options.items.length;
                 var i;
@@ -69,6 +78,7 @@
 
                     if (item.divider) {
                         el.addClass(options.dividerClass);
+                        el.attr('role', 'separator');
                     }
                     else if (item.header) {
                         el.addClass(options.headerClass);
@@ -78,18 +88,23 @@
                         el.append('<a/>');
                         var a = el.find('a');
 
-                        if (item.href) {
-                            a.attr('href', item.href);
+                        if (item.disabled) {
+                            el.addClass(options.disabledClass);
                         }
-                        if (item.onclick) {
-                            a.on('click', options, item.onclick);
-                            a.css('cursor', 'pointer');
-                        }
-                        if (item.data) {
-                        for (var data in item.data) {
-                            menu.attr('data-' + data, item.data[data]);
-                        }
-                            a.data(item.data);
+                        else{
+                            if (item.href) {
+                                a.attr('href', item.href);
+                            }
+                            if (item.onclick) {
+                                a.on('click', options, item.onclick);
+                                a.css('cursor', 'pointer');
+                            }
+                            if (item.data) {
+                                for (var data in item.data) {
+                                    menu.attr('data-' + data, item.data[data]);
+                                }
+                                a.data(item.data);
+                            }
                         }
                         a.html(item.text);
                     }
@@ -121,13 +136,26 @@
                     .css('position', 'fixed')
                     .show();
             })
-        .parents().on('mouseup', function () {
-            $("#" + options.menuId).hide();
-        });
+        ;
 
-        $window.on('scroll', function () {
-            $("#" + options.menuId).hide();
-        });
+        if( true === options.hideOnMouseUp ){
+            $(this.element)
+                .parents().on('mouseup', function () {
+                $("#" + options.menuId).hide();
+            });
+        }
+        else{
+            $(this.element)
+                .parents().on('contextmenu click', function () {
+                $("#" + options.menuId).hide();
+            });
+        }
+
+        if(true === options.hideOnScroll) {
+            $window.on('scroll', function () {
+                $("#" + options.menuId).hide();
+            });
+        }
 
         contextifyId++;
     };
@@ -140,8 +168,8 @@
             .removeAttr('data-contextify-id')
             .off('contextmenu')
             .parents().off('mouseup', function () {
-                $("#" + options.menuId).hide();
-            });
+            $("#" + options.menuId).hide();
+        });
 
         $window.off('scroll', function () {
             $("#" + options.menuId).hide();
@@ -160,5 +188,4 @@
             }
         });
     };
-
 }));
