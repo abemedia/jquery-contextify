@@ -17,7 +17,7 @@ The easiest way to get up and running is to load jQuery Contextify using a CDN. 
 ```
 or
 ```html
-<script src="//cdn.jsdelivr.net/jquery.contextify/1.0.8/jquery.contextify.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery-contextify@1.0.8/dist/jquery.contextify.min.js"></script>
 ```
 
 ### Install with Bower
