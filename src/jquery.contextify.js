@@ -1,4 +1,8 @@
-/* jQuery Contextify | (c) 2014-2016 Adam Bouqdib | abemedia.co.uk/license */
+/*!
+* jQuery Contextify v1.0.8 (http://contextify.js.org)
+* Copyright (c) 2016 Adam Bouqdib
+* Licensed under GPL-2.0 (http://abemedia.co.uk/license)
+*/
 
 /*global define */
 
@@ -20,8 +24,9 @@
             action: "contextmenu",
             menuId: "contextify-menu",
             menuClass: "dropdown-menu",
+            itemClass: "dropdown-item",
             headerClass: "dropdown-header",
-            dividerClass: "divider",
+            dividerClass: "dropdown-divider",
             before: false
         },
         contextifyId = 0,
@@ -71,7 +76,11 @@
                         el.html(item.header);
                     }
                     else {
-                        el.append('<a/>');
+												if (options.itemClass !== ''){
+													el.append('<a class="' + options.itemClass + '"/>');
+												}else{
+													el.append('<a/>');
+												}
                         var a = el.find('a');
 
                         if (item.href) {
